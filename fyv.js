@@ -7,6 +7,7 @@
   document.body.insertAdjacentHTML('afterbegin',
     '<header class="fyv-header">'
     + '<img class="fyv-logo" src="https://raw.githack.com/isaxaudio/fatfish-video-search/main/uopx-logo.png" alt="University of Phoenix">'
+    + '<a class="fyv-header-btn" href="mailto:events@fatfishmedia.com">Questions</a>'
     + '</header>'
   );
 
