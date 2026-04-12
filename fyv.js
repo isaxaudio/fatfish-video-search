@@ -52,7 +52,7 @@
     '        <h2 class="fyv-congrats-headline">Congratulations,<br><em>Graduates!</em></h2>',
     '        <div class="fyv-congrats-body">',
     '          <p>You believed &mdash; and you achieved. Get your personalized commencement video below and celebrate this milestone with friends, classmates, and family. Type your name in the search bar above to find your moment. Can&rsquo;t find it? <a href="mailto:events@fatfishmedia.com">Email us</a> and we&rsquo;ll get back to you as soon as possible.</p>',
-    '          <p>Don&rsquo;t forget your <strong>digital commencement program</strong> &mdash; select <strong>&ldquo;Virtual-May2025&rdquo;</strong> in the drop-down to view or download. Available until <strong>June 2, 2025</strong>. Continue to soar, Phoenixes!</p>',
+    '          <p>Don&rsquo;t forget your <strong>digital commencement program</strong> &mdash; select <strong>&ldquo;Virtual-May2026&rdquo;</strong> in the drop-down to view or download. Available until <strong>June 2, 2026</strong>. Continue to soar, Phoenixes!</p>',
     '        </div>',
     '        <div class="fyv-congrats-pills">',
     '          <span class="fyv-congrats-pill fyv-congrats-pill--dark">Class of 2026</span>',
