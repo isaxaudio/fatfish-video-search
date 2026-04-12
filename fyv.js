@@ -1,28 +1,38 @@
-/* FF Video Platform — Find Your Video — Script */
-/* Edit this file, then run: python3 webflow-push.py */
+/* FF Video Platform — Find Your Video */
+/* Edit then run: python3 webflow-push.py  */
 
 (function () {
+
   // ── Inject HTML ────────────────────────────────────────────
   document.body.insertAdjacentHTML('beforeend', [
     '<div class="fyv-overlay" id="fyv-overlay">',
     '  <div style="position:relative;width:min(92vw,960px)">',
     '    <button id="fyv-close" aria-label="Close"',
     '      style="position:absolute;top:12px;right:12px;z-index:2;width:36px;height:36px;',
-    '             border:none;border-radius:999px;background:rgba(255,255,255,.12);',
-    '             color:#fff;font-size:22px;cursor:pointer;">&times;</button>',
+    '             border:none;border-radius:999px;background:rgba(255,255,255,.1);',
+    '             color:#fff;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;">&times;</button>',
     '    <video id="fyv-modal-video" controls playsinline',
     '      style="width:100%;display:block;border-radius:16px;background:#000;"></video>',
     '  </div>',
     '</div>',
+
     '<div class="fyv-page">',
     '  <div class="fyv-hero">',
-    '    <h1 class="fyv-headline">Find Your<br>Commencement<br>Moment.</h1>',
+    '    <h1 class="fyv-headline">Find Your<br><em>Commencement</em><br>Moment.</h1>',
     '    <p class="fyv-subhead">Search your name to watch and download your graduation video.</p>',
-    '    <input class="fyv-input" id="fyv-input" placeholder="Search your name..."',
-    '      autocomplete="off" spellcheck="false" />',
+    '    <div class="fyv-search-wrap">',
+    '      <span class="fyv-search-icon">',
+    '        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">',
+    '          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>',
+    '        </svg>',
+    '      </span>',
+    '      <input class="fyv-input" id="fyv-input" placeholder="Search archive..."',
+    '        autocomplete="off" spellcheck="false" />',
+    '    </div>',
     '  </div>',
+
     '  <div class="fyv-results">',
-    '    <div id="fyv-status" style="text-align:center;font-size:11px;color:#A8A29E;margin-bottom:20px;"></div>',
+    '    <div class="fyv-status" id="fyv-status"></div>',
     '    <div class="fyv-grid" id="fyv-grid"></div>',
     '  </div>',
     '</div>'
@@ -43,8 +53,8 @@
   // ── Helpers ────────────────────────────────────────────────
   function esc(s) {
     return String(s || '')
-      .replace(/&/g, '&amp;').replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
   }
 
   // ── Modal ──────────────────────────────────────────────────
@@ -70,36 +80,70 @@
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
 
   // ── Card ───────────────────────────────────────────────────
+  function playIcon() {
+    return '<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">'
+      + '<polygon points="5 3 19 12 5 21 5 3"/></svg>';
+  }
+
+  function downloadIcon() {
+    return '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">'
+      + '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>'
+      + '<polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>';
+  }
+
   function renderCard(v) {
     var name        = esc(v.student_name || '');
     var school      = esc(v.school_name  || '');
-    var eventText   = esc([v.event_name, v.event_year].filter(Boolean).join(' \u2022 '));
+    var year        = v.event_year   ? 'Class of ' + v.event_year : '';
+    var eventLabel  = esc(v.event_name || '');
     var thumb       = v.thumbnail_url  || '';
     var videoUrl    = v.video_file_url || '';
-    var smugUrl     = v.smugmug_url    || '#';
-    var downloadUrl = v.download_url   || smugUrl;
+    var smugUrl     = esc(v.smugmug_url    || '#');
+    var downloadUrl = esc(v.download_url   || v.smugmug_url || '#');
 
-    var thumbHtml = thumb
+    // Thumbnail area
+    var thumbContent = thumb
       ? '<img class="fyv-thumb ' + (videoUrl ? 'has-preview' : '') + '" src="' + esc(thumb) + '" alt="' + name + '" onerror="this.remove()">'
-      : '<div class="fyv-thumb-fallback">\u25b6</div>';
+      : '<div class="fyv-thumb-fallback"><svg width="32" height="32" viewBox="0 0 24 24" fill="rgba(255,255,255,0.2)"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>';
 
-    var previewHtml = videoUrl
+    var previewEl = videoUrl
       ? '<video class="fyv-preview" data-src="' + esc(videoUrl) + '" muted loop playsinline></video>'
       : '';
 
-    var watchBtn = videoUrl
-      ? '<button class="fyv-btn fyv-btn-watch" data-video="' + esc(videoUrl) + '">Watch</button>'
-      : '<a class="fyv-btn fyv-btn-watch" href="' + esc(smugUrl) + '" target="_blank" rel="noopener">Watch</a>';
+    // Click thumbnail → open modal or SmugMug
+    var thumbClick = videoUrl
+      ? 'onclick="(function(){var v=document.getElementById(\'fyv-modal-video\');v.src=\'' + esc(videoUrl) + '\';document.getElementById(\'fyv-overlay\').classList.add(\'is-open\');document.getElementById(\'fyv-overlay\').style.display=\'flex\';document.body.style.overflow=\'hidden\';v.play().catch(function(){});})()"'
+      : 'onclick="window.open(\'' + smugUrl + '\',\'_blank\')"';
 
-    var dlBtn = '<a class="fyv-btn fyv-btn-download" href="' + esc(downloadUrl) + '" target="_blank" rel="noopener">Download</a>';
+    // Watch button
+    var watchBtn = videoUrl
+      ? '<button class="fyv-btn-watch" data-video="' + esc(videoUrl) + '">'
+          + playIcon() + ' Watch Video</button>'
+      : '<a class="fyv-btn-watch" href="' + smugUrl + '" target="_blank" rel="noopener">'
+          + playIcon() + ' Watch Video</a>';
+
+    // Meta row
+    var metaHtml = (year || eventLabel)
+      ? '<div class="fyv-card-meta">'
+          + (year       ? '<span class="fyv-card-year">' + esc(year) + '</span>' : '')
+          + (eventLabel ? '<span class="fyv-card-event-label">' + eventLabel + '</span>' : '')
+        + '</div>'
+      : '';
 
     return '<div class="fyv-card">'
-      + '<div class="fyv-thumb-wrap">' + thumbHtml + previewHtml + '</div>'
+      + '<div class="fyv-thumb-wrap" ' + thumbClick + '>'
+      +   thumbContent + previewEl
+      + '</div>'
       + '<div class="fyv-card-body">'
-      +   '<div class="fyv-name">' + name + '</div>'
-      +   (school    ? '<div class="fyv-meta">' + school + '</div>' : '')
-      +   (eventText ? '<div class="fyv-meta" style="margin-bottom:14px;">' + eventText + '</div>' : '')
-      +   '<div class="fyv-actions">' + watchBtn + dlBtn + '</div>'
+      +   metaHtml
+      +   '<div class="fyv-card-name">' + name + '</div>'
+      +   (school ? '<div class="fyv-card-school">' + school + '</div>' : '')
+      +   watchBtn
+      +   '<div class="fyv-card-links">'
+      +     '<a class="fyv-link" href="' + downloadUrl + '" target="_blank" rel="noopener">'
+      +       downloadIcon() + ' Download'
+      +     '</a>'
+      +   '</div>'
       + '</div>'
       + '</div>';
   }
@@ -115,7 +159,6 @@
       var preview   = card.querySelector('.fyv-preview');
       var thumbWrap = card.querySelector('.fyv-thumb-wrap');
       if (!preview || !thumbWrap) return;
-
       thumbWrap.addEventListener('mouseenter', function () {
         if (!preview.src && preview.dataset.src) preview.src = preview.dataset.src;
         preview.currentTime = 0;
@@ -134,26 +177,28 @@
       return;
     }
 
-    status.textContent = 'Searching...';
+    status.textContent = 'Searching\u2026';
 
     var url = SUPABASE_URL
       + '/rest/v1/videos?search_name=ilike.%25' + encodeURIComponent(q) + '%25'
       + '&is_active=eq.true'
       + '&select=student_name,school_name,event_name,event_year,thumbnail_url,smugmug_url,download_url,video_file_url'
+      + '&order=last_name.asc,first_name.asc'
       + '&limit=50';
 
     try {
       var res = await fetch(url, {
         headers: { apikey: SUPABASE_ANON_KEY, Authorization: 'Bearer ' + SUPABASE_ANON_KEY }
       });
-
       if (!res.ok) throw new Error('API ' + res.status);
       var data = await res.json();
 
-      status.textContent = data.length ? (data.length + ' result' + (data.length !== 1 ? 's' : '')) : '';
+      status.textContent = data.length
+        ? data.length + ' result' + (data.length !== 1 ? 's' : '')
+        : '';
 
       if (!data.length) {
-        grid.innerHTML = '<div class="fyv-empty">No results found</div>';
+        grid.innerHTML = '<div class="fyv-empty">No results found for &ldquo;' + esc(q) + '&rdquo;</div>';
         return;
       }
 

@@ -1,91 +1,141 @@
-/* FF Video Platform — Find Your Video — Styles */
-/* Edit this file, then run: python3 webflow-push.py */
+/* FF Video Platform — Find Your Video */
+/* Edit then run: python3 webflow-push.py  */
 
-body { background:#F7F5F0 !important; }
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap');
+
+/* ── Base ─────────────────────────────────────────────────── */
+body { background:#EFE5DF !important; }
 
 .fyv-page {
   min-height:100vh;
-  font-family:'Inter',sans-serif;
+  background:#EFE5DF;
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  -webkit-font-smoothing:antialiased;
   color:#0A0A0A;
 }
 
+/* ── Hero ─────────────────────────────────────────────────── */
 .fyv-hero {
-  max-width:900px;
+  max-width:860px;
   margin:0 auto;
-  padding:120px 32px 80px;
+  padding:108px 32px 72px;
   text-align:center;
-  background:radial-gradient(circle at top,#ffffff 0%,#F7F5F0 60%);
 }
 
 .fyv-headline {
-  font-size:clamp(44px,8vw,80px);
-  font-weight:800;
+  font-size:clamp(56px,11vw,104px);
+  font-weight:900;
   letter-spacing:-0.04em;
-  line-height:1;
-  margin:0 0 20px;
+  line-height:0.92;
+  margin:0 0 36px;
+  color:#0A0A0A;
+}
+
+/* Italic serif accent word — matches "Atmospheric" style */
+.fyv-headline em {
+  font-family:'Playfair Display',Georgia,serif;
+  font-style:italic;
+  font-weight:400;
+  color:#9B2F1C;
+  letter-spacing:-0.01em;
 }
 
 .fyv-subhead {
-  font-size:16px;
-  color:#A8A29E;
-  margin:0 0 52px;
+  font-size:15px;
+  color:#A09490;
+  margin:0 0 48px;
+  line-height:1.6;
+}
+
+/* ── Search ───────────────────────────────────────────────── */
+.fyv-search-wrap {
+  max-width:520px;
+  margin:0 auto;
+  position:relative;
+}
+
+.fyv-search-icon {
+  position:absolute;
+  left:22px;
+  top:50%;
+  transform:translateY(-50%);
+  color:#C0B4AE;
+  pointer-events:none;
+  display:flex;
 }
 
 .fyv-input {
   width:100%;
-  max-width:720px;
-  padding:22px 36px;
+  padding:18px 24px 18px 52px;
   border-radius:9999px;
-  border:1.5px solid #E8E5DE;
-  box-shadow:0 6px 30px rgba(0,0,0,0.06);
-  transition:.25s;
-  font-size:16px;
+  border:1.5px solid rgba(0,0,0,0.07);
   background:#fff;
+  font-size:15px;
+  font-family:inherit;
+  color:#0A0A0A;
+  box-shadow:0 4px 24px rgba(0,0,0,0.07);
   outline:none;
   box-sizing:border-box;
-  font-family:inherit;
+  transition:box-shadow .2s, border-color .2s;
 }
+
+.fyv-input::placeholder { color:#C4BAB5; }
 
 .fyv-input:focus {
-  border-color:#000;
-  box-shadow:0 10px 40px rgba(0,0,0,0.12);
-  transform:scale(1.01);
+  border-color:rgba(0,0,0,0.18);
+  box-shadow:0 6px 32px rgba(0,0,0,0.11);
 }
 
+/* ── Results ──────────────────────────────────────────────── */
 .fyv-results {
-  max-width:1100px;
+  max-width:1080px;
   margin:0 auto;
   padding:40px 24px 120px;
 }
 
-.fyv-grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
-  gap:24px;
+.fyv-status {
+  text-align:center;
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:#C0B4AE;
+  min-height:14px;
+  margin-bottom:24px;
 }
 
+/* ── Grid ─────────────────────────────────────────────────── */
+.fyv-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:20px;
+  align-items:start;
+}
+
+/* ── Card ─────────────────────────────────────────────────── */
 .fyv-card {
   background:#fff;
-  border-radius:18px;
+  border-radius:22px;
   overflow:hidden;
   box-shadow:
-    0 4px 12px rgba(0,0,0,0.05),
-    0 20px 50px rgba(0,0,0,0.08);
-  transition:.3s;
+    0 2px 8px rgba(0,0,0,0.04),
+    0 12px 36px rgba(0,0,0,0.07);
+  transition:transform .25s ease, box-shadow .25s ease;
 }
 
 .fyv-card:hover {
-  transform:translateY(-6px);
+  transform:translateY(-5px);
   box-shadow:
-    0 10px 24px rgba(0,0,0,0.08),
-    0 30px 70px rgba(0,0,0,0.15);
+    0 6px 16px rgba(0,0,0,0.06),
+    0 24px 56px rgba(0,0,0,0.12);
 }
 
+/* ── Thumbnail ────────────────────────────────────────────── */
 .fyv-thumb-wrap {
   position:relative;
   width:100%;
-  padding-bottom:56.25%;
-  background:#111;
+  padding-bottom:58%;
+  background:#1A1614;
   overflow:hidden;
   cursor:pointer;
 }
@@ -100,9 +150,7 @@ body { background:#F7F5F0 !important; }
   z-index:1;
 }
 
-.fyv-card:hover .fyv-thumb {
-  transform:scale(1.05);
-}
+.fyv-card:hover .fyv-thumb { transform:scale(1.04); }
 
 .fyv-preview {
   position:absolute;
@@ -111,19 +159,13 @@ body { background:#F7F5F0 !important; }
   height:100%;
   object-fit:cover;
   opacity:0;
-  transition:opacity .25s ease;
+  transition:opacity .3s ease;
   pointer-events:none;
   z-index:2;
-  background:#000;
 }
 
-.fyv-card:hover .fyv-preview {
-  opacity:1;
-}
-
-.fyv-card:hover .fyv-thumb.has-preview {
-  opacity:0;
-}
+.fyv-card:hover .fyv-preview { opacity:1; }
+.fyv-card:hover .fyv-thumb.has-preview { opacity:0; }
 
 .fyv-thumb-fallback {
   position:absolute;
@@ -131,86 +173,142 @@ body { background:#F7F5F0 !important; }
   display:flex;
   align-items:center;
   justify-content:center;
-  color:#fff;
-  font-size:28px;
+  background:linear-gradient(160deg,#2A1F1C 0%,#1A1614 100%);
   z-index:0;
 }
 
+/* ── Card body ────────────────────────────────────────────── */
 .fyv-card-body {
-  padding:16px 16px 18px;
+  padding:18px 20px 22px;
 }
 
-.fyv-name {
-  font-weight:700;
-  font-size:15px;
-  margin-bottom:4px;
-}
-
-.fyv-meta {
-  font-size:12px;
-  color:#A8A29E;
-}
-
-.fyv-actions {
+.fyv-card-meta {
   display:flex;
-  gap:8px;
+  align-items:center;
+  gap:10px;
+  margin-bottom:10px;
 }
 
-.fyv-btn {
-  flex:1;
-  padding:10px 0;
-  border-radius:999px;
+.fyv-card-year {
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:#9B2F1C;
+}
+
+.fyv-card-event-label {
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:#C0B4AE;
+}
+
+.fyv-card-name {
+  font-size:21px;
+  font-weight:800;
+  letter-spacing:-0.03em;
+  line-height:1.1;
+  color:#0A0A0A;
+  margin:0 0 6px;
+}
+
+.fyv-card-school {
+  font-size:12px;
+  color:#A09490;
+  line-height:1.45;
+  margin:0 0 18px;
+}
+
+/* Watch button — large rose pill */
+.fyv-btn-watch {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  width:100%;
+  padding:13px 0;
+  border-radius:9999px;
+  background:rgba(155,47,28,0.07);
+  border:1.5px solid rgba(155,47,28,0.14);
+  color:#9B2F1C;
   font-size:11px;
   font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:.06em;
-  text-align:center;
-  cursor:pointer;
-  transition:.2s;
-  text-decoration:none;
-  border:none;
-  box-sizing:border-box;
   font-family:inherit;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  cursor:pointer;
+  text-decoration:none;
+  transition:background .18s ease, border-color .18s ease;
+  box-sizing:border-box;
+  margin-bottom:12px;
 }
 
-.fyv-btn-watch {
-  background:#0A0A0A;
-  color:#fff;
+.fyv-btn-watch:hover {
+  background:rgba(155,47,28,0.12);
+  border-color:rgba(155,47,28,0.25);
 }
 
-.fyv-btn-download {
-  background:#EFEDE7;
-  color:#444;
-  border:1px solid #E0DDD6;
+/* Download + share row */
+.fyv-card-links {
+  display:flex;
+  gap:0;
+  border-top:1px solid #F0EAE7;
+  padding-top:12px;
 }
 
-.fyv-btn:hover {
-  opacity:.75;
+.fyv-link {
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:#B0A8A4;
+  text-decoration:none;
+  padding:4px 0;
+  transition:color .15s ease;
 }
 
+.fyv-link:hover { color:#0A0A0A; }
+
+.fyv-link + .fyv-link {
+  border-left:1px solid #F0EAE7;
+}
+
+/* ── Empty / loading ──────────────────────────────────────── */
+.fyv-empty {
+  grid-column:1/-1;
+  text-align:center;
+  padding:72px 0;
+  color:#B0A8A4;
+  font-size:14px;
+}
+
+/* ── Modal ────────────────────────────────────────────────── */
 .fyv-overlay {
   display:none;
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.9);
-  backdrop-filter:blur(12px);
+  background:rgba(0,0,0,.92);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
   align-items:center;
   justify-content:center;
   z-index:9999;
+  padding:24px;
+  box-sizing:border-box;
 }
 
-.fyv-overlay.is-open {
-  display:flex;
-}
+.fyv-overlay.is-open { display:flex; }
 
-.fyv-empty {
-  grid-column:1/-1;
-  text-align:center;
-  padding:60px 0;
-  color:#A8A29E;
-}
-
-@media(max-width:600px){
-  .fyv-hero { padding:80px 20px 60px; }
-  .fyv-results { padding:32px 20px 80px; }
+/* ── Responsive ───────────────────────────────────────────── */
+@media(max-width:640px){
+  .fyv-hero    { padding:80px 20px 56px; }
+  .fyv-results { padding:28px 16px 80px; }
+  .fyv-grid    { gap:14px; }
 }
