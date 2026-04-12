@@ -232,62 +232,70 @@ body {
 }
 
 /* Watch button — large rose pill */
-.fyv-btn-watch {
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  width:100%;
-  padding:13px 0;
-  border-radius:9999px;
-  background:rgba(155,47,28,0.07);
-  border:1.5px solid rgba(155,47,28,0.14);
-  color:#9B2F1C;
-  font-size:11px;
-  font-weight:700;
-  font-family:inherit;
-  letter-spacing:0.08em;
-  text-transform:uppercase;
-  cursor:pointer;
-  text-decoration:none;
-  transition:background .18s ease, border-color .18s ease;
-  box-sizing:border-box;
-  margin-bottom:12px;
+/* High specificity to beat Webflow global button styles */
+.fyv-card .fyv-btn-watch,
+.fyv-card a.fyv-btn-watch {
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:8px !important;
+  width:100% !important;
+  padding:13px 0 !important;
+  border-radius:9999px !important;
+  background:rgba(155,47,28,0.07) !important;
+  border:1.5px solid rgba(155,47,28,0.18) !important;
+  color:#9B2F1C !important;
+  font-size:11px !important;
+  font-weight:700 !important;
+  font-family:inherit !important;
+  letter-spacing:0.08em !important;
+  text-transform:uppercase !important;
+  cursor:pointer !important;
+  text-decoration:none !important;
+  transition:background .18s ease, border-color .18s ease !important;
+  box-sizing:border-box !important;
+  margin-bottom:12px !important;
+  box-shadow:none !important;
 }
 
-.fyv-btn-watch:hover {
-  background:rgba(155,47,28,0.12);
-  border-color:rgba(155,47,28,0.25);
+.fyv-card .fyv-btn-watch:hover,
+.fyv-card a.fyv-btn-watch:hover {
+  background:rgba(155,47,28,0.13) !important;
+  border-color:rgba(155,47,28,0.28) !important;
+  color:#9B2F1C !important;
 }
 
-/* Download + share row */
+/* Download row */
 .fyv-card-links {
   display:flex;
-  gap:0;
   border-top:1px solid #F0EAE7;
   padding-top:12px;
 }
 
-.fyv-link {
-  flex:1;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:6px;
-  font-size:10px;
-  font-weight:600;
-  letter-spacing:0.08em;
-  text-transform:uppercase;
-  color:#B0A8A4;
-  text-decoration:none;
-  padding:4px 0;
-  transition:color .15s ease;
+.fyv-card .fyv-link,
+.fyv-card a.fyv-link {
+  flex:1 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:6px !important;
+  font-size:10px !important;
+  font-weight:600 !important;
+  letter-spacing:0.08em !important;
+  text-transform:uppercase !important;
+  color:#B0A8A4 !important;
+  text-decoration:none !important;
+  padding:4px 0 !important;
+  transition:color .15s ease !important;
 }
 
-.fyv-link:hover { color:#0A0A0A; }
+.fyv-card a.fyv-link:hover { color:#0A0A0A !important; }
 
-.fyv-link + .fyv-link {
-  border-left:1px solid #F0EAE7;
+/* Meta dot separator */
+.fyv-card-meta-dot {
+  color:#D8D0CB;
+  margin:0 6px;
+  font-size:10px;
 }
 
 /* ── Empty / loading ──────────────────────────────────────── */

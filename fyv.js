@@ -123,11 +123,11 @@
           + playIcon() + ' Watch Video</a>';
 
     // Meta row
-    var metaHtml = (year || eventLabel)
-      ? '<div class="fyv-card-meta">'
-          + (year       ? '<span class="fyv-card-year">' + esc(year) + '</span>' : '')
-          + (eventLabel ? '<span class="fyv-card-event-label">' + eventLabel + '</span>' : '')
-        + '</div>'
+    var metaParts = [];
+    if (year)       metaParts.push('<span class="fyv-card-year">' + esc(year) + '</span>');
+    if (eventLabel) metaParts.push('<span class="fyv-card-event-label">' + eventLabel + '</span>');
+    var metaHtml = metaParts.length
+      ? '<div class="fyv-card-meta">' + metaParts.join('<span class="fyv-card-meta-dot">&middot;</span>') + '</div>'
       : '';
 
     return '<div class="fyv-card">'
