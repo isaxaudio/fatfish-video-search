@@ -10,6 +10,7 @@
     + '</div>'
     + '<header class="fyv-header">'
     + '<img class="fyv-logo" src="https://raw.githack.com/isaxaudio/fatfish-video-search/main/uopx-logo.png" alt="University of Phoenix">'
+    + '<div class="fyv-header-center"><span class="fyv-header-year">2026</span><span class="fyv-header-label">Commencement</span></div>'
     + '<a class="fyv-header-btn" href="mailto:events@fatfishmedia.com">Questions</a>'
     + '</header>'
   );
