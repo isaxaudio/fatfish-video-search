@@ -459,66 +459,119 @@ a.fyv-header-btn:hover {
 
 .fyv-overlay.is-open { display:flex; }
 
-/* ── Info panel ───────────────────────────────────────────── */
-.fyv-info {
-  max-width:780px;
-  margin:0 auto 16px;
-  padding:0 24px;
+/* ── Congrats section ─────────────────────────────────────── */
+.fyv-congrats-section {
+  max-width:1080px;
+  margin:0 auto 0;
+  padding:0 24px 60px;
 }
 
-.fyv-info-card {
-  background:rgba(255,255,255,0.38);
-  backdrop-filter:blur(20px);
-  -webkit-backdrop-filter:blur(20px);
-  border:1px solid rgba(255,255,255,0.58);
-  border-radius:22px;
-  padding:32px 36px;
+.fyv-congrats-card {
+  background:rgba(255,255,255,0.42);
+  backdrop-filter:blur(24px);
+  -webkit-backdrop-filter:blur(24px);
+  border:1px solid rgba(255,255,255,0.65);
+  border-radius:28px;
+  overflow:hidden;
   box-shadow:
     0 2px 8px rgba(0,0,0,0.04),
-    0 12px 40px rgba(0,0,0,0.07),
-    inset 0 1px 0 rgba(255,255,255,0.82);
+    0 20px 60px rgba(0,0,0,0.09),
+    inset 0 1px 0 rgba(255,255,255,0.88);
+  display:grid;
+  grid-template-columns:1fr 420px;
+  min-height:380px;
 }
 
-.fyv-info-congrats {
+.fyv-congrats-left {
+  padding:52px 48px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.fyv-congrats-headline {
+  font-size:clamp(28px,4vw,44px);
+  font-weight:900;
+  letter-spacing:-0.03em;
+  line-height:1.05;
+  color:#0A0A0A;
+  margin:0 0 8px;
+}
+
+.fyv-congrats-headline em {
   font-family:'Playfair Display',Georgia,serif;
   font-style:italic;
-  font-size:clamp(18px,3vw,24px);
   font-weight:400;
   color:#9B2F1C;
-  line-height:1.3;
-  margin:0 0 18px;
-  padding-bottom:18px;
-  border-bottom:1px solid rgba(200,130,110,0.2);
 }
 
-.fyv-info-body {
-  font-size:13px;
+.fyv-congrats-body {
+  font-size:13.5px;
   line-height:1.75;
   color:#5A3830;
+  margin:0 0 32px;
+  max-width:440px;
 }
 
-.fyv-info-body p {
-  margin:0 0 14px;
-}
+.fyv-congrats-body p { margin:0 0 12px; }
+.fyv-congrats-body p:last-child { margin:0; }
 
-.fyv-info-body p:last-child {
-  margin:0;
-}
-
-.fyv-info-body strong {
+.fyv-congrats-body strong {
   font-weight:700;
   color:#3A1A14;
 }
 
-.fyv-info-body a {
+.fyv-congrats-body a {
   color:#9B2F1C !important;
   font-weight:600 !important;
   text-decoration:underline !important;
   text-underline-offset:3px !important;
 }
 
-.fyv-info-body a:hover {
-  color:#CC2B1A !important;
+.fyv-congrats-body a:hover { color:#CC2B1A !important; }
+
+.fyv-congrats-pills {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.fyv-congrats-pill {
+  padding:9px 20px;
+  border-radius:9999px;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  white-space:nowrap;
+  text-decoration:none !important;
+  cursor:default;
+}
+
+.fyv-congrats-pill--dark {
+  background:rgba(20,8,6,0.07);
+  border:1.5px solid rgba(20,8,6,0.14);
+  color:#1A0A08 !important;
+}
+
+.fyv-congrats-pill--red {
+  background:rgba(155,47,28,0.08);
+  border:1.5px solid rgba(155,47,28,0.35);
+  color:#9B2F1C !important;
+}
+
+.fyv-congrats-right {
+  position:relative;
+  overflow:hidden;
+}
+
+.fyv-congrats-photo {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center top;
+  display:block;
+  filter:grayscale(30%);
 }
 
 /* ── Footer ───────────────────────────────────────────────── */
@@ -588,6 +641,8 @@ a.fyv-footer-link:hover {
   .fyv-grid    { gap:14px; }
   .fyv-footer  { padding:28px 20px; flex-direction:column; align-items:center; text-align:center; gap:16px; }
   .fyv-footer-copy { text-align:center; }
-  .fyv-info    { padding:0 16px; }
-  .fyv-info-card { padding:24px 22px; }
+  .fyv-congrats-section { padding:0 16px 48px; }
+  .fyv-congrats-card { grid-template-columns:1fr; }
+  .fyv-congrats-left { padding:36px 28px; }
+  .fyv-congrats-right { height:260px; }
 }
