@@ -71,32 +71,44 @@ body {
   object-fit:contain;
 }
 
-/* Center title */
-.fyv-header-center {
-  position:absolute;
-  left:50%;
-  transform:translateX(-50%);
+/* Sub-header bar */
+.fyv-subheader {
+  position:fixed;
+  top:60px;
+  left:0;
+  right:0;
+  z-index:999;
+  height:32px;
   display:flex;
-  flex-direction:column;
   align-items:center;
-  line-height:1;
-  pointer-events:none;
+  justify-content:center;
+  gap:12px;
+  background:rgba(180,55,35,0.12);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(200,80,55,0.15);
 }
 
-.fyv-header-year {
-  font-size:17px;
+.fyv-subheader-year {
+  font-size:10px;
   font-weight:800;
-  letter-spacing:-0.02em;
-  color:#1A0A06;
+  letter-spacing:0.12em;
+  color:#8A2818;
 }
 
-.fyv-header-label {
-  font-size:9px;
-  font-weight:600;
+.fyv-subheader-divider {
+  width:1px;
+  height:10px;
+  background:rgba(155,47,28,0.3);
+  display:inline-block;
+}
+
+.fyv-subheader-label {
+  font-size:10px;
+  font-weight:500;
   letter-spacing:0.18em;
   text-transform:uppercase;
-  color:rgba(100,40,28,0.65);
-  margin-top:1px;
+  color:rgba(120,45,28,0.7);
 }
 
 /* Questions button — solid red, compact, wider */
