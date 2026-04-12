@@ -4,6 +4,12 @@
 (function () {
 
   // ── Inject HTML ────────────────────────────────────────────
+  document.body.insertAdjacentHTML('afterbegin',
+    '<header class="fyv-header">'
+    + '<img class="fyv-logo" src="https://raw.githack.com/isaxaudio/fatfish-video-search/main/uopx-logo.png" alt="University of Phoenix">'
+    + '</header>'
+  );
+
   document.body.insertAdjacentHTML('beforeend', [
     '<div class="fyv-overlay" id="fyv-overlay">',
     '  <div style="position:relative;width:min(92vw,960px)">',

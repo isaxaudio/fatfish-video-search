@@ -5,7 +5,7 @@
 
 /* ── Base ─────────────────────────────────────────────────── */
 body {
-  background: linear-gradient(160deg, #F5E8E2 0%, #EDE0D8 40%, #E4D5CC 100%) !important;
+  background: linear-gradient(150deg, #F2D0C8 0%, #E8B8AC 30%, #D9998A 65%, #C97E6E 100%) !important;
   min-height: 100vh;
 }
 
@@ -17,11 +17,32 @@ body {
   color:#0A0A0A;
 }
 
+/* ── Header ───────────────────────────────────────────────── */
+.fyv-header {
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:1000;
+  padding:14px 32px;
+  background:rgba(255,255,255,0.22);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,0.32);
+  box-shadow:0 2px 24px rgba(0,0,0,0.07);
+}
+
+.fyv-logo {
+  height:32px;
+  display:block;
+  object-fit:contain;
+}
+
 /* ── Hero ─────────────────────────────────────────────────── */
 .fyv-hero {
   max-width:860px;
   margin:0 auto;
-  padding:108px 32px 72px;
+  padding:160px 32px 72px;
   text-align:center;
 }
 
@@ -124,12 +145,15 @@ body {
 
 /* ── Card ─────────────────────────────────────────────────── */
 .fyv-card {
-  background:#fff;
+  background:rgba(255,255,255,0.52);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,0.65);
   border-radius:22px;
   overflow:hidden;
   box-shadow:
-    0 2px 8px rgba(0,0,0,0.04),
-    0 12px 36px rgba(0,0,0,0.07);
+    0 2px 8px rgba(0,0,0,0.05),
+    0 12px 40px rgba(0,0,0,0.1);
   transition:transform .25s ease, box-shadow .25s ease;
 }
 
