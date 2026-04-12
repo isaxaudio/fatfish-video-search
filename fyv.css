@@ -1,0 +1,216 @@
+/* FF Video Platform — Find Your Video — Styles */
+/* Edit this file, then run: python3 webflow-push.py */
+
+body { background:#F7F5F0 !important; }
+
+.fyv-page {
+  min-height:100vh;
+  font-family:'Inter',sans-serif;
+  color:#0A0A0A;
+}
+
+.fyv-hero {
+  max-width:900px;
+  margin:0 auto;
+  padding:120px 32px 80px;
+  text-align:center;
+  background:radial-gradient(circle at top,#ffffff 0%,#F7F5F0 60%);
+}
+
+.fyv-headline {
+  font-size:clamp(44px,8vw,80px);
+  font-weight:800;
+  letter-spacing:-0.04em;
+  line-height:1;
+  margin:0 0 20px;
+}
+
+.fyv-subhead {
+  font-size:16px;
+  color:#A8A29E;
+  margin:0 0 52px;
+}
+
+.fyv-input {
+  width:100%;
+  max-width:720px;
+  padding:22px 36px;
+  border-radius:9999px;
+  border:1.5px solid #E8E5DE;
+  box-shadow:0 6px 30px rgba(0,0,0,0.06);
+  transition:.25s;
+  font-size:16px;
+  background:#fff;
+  outline:none;
+  box-sizing:border-box;
+  font-family:inherit;
+}
+
+.fyv-input:focus {
+  border-color:#000;
+  box-shadow:0 10px 40px rgba(0,0,0,0.12);
+  transform:scale(1.01);
+}
+
+.fyv-results {
+  max-width:1100px;
+  margin:0 auto;
+  padding:40px 24px 120px;
+}
+
+.fyv-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:24px;
+}
+
+.fyv-card {
+  background:#fff;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:
+    0 4px 12px rgba(0,0,0,0.05),
+    0 20px 50px rgba(0,0,0,0.08);
+  transition:.3s;
+}
+
+.fyv-card:hover {
+  transform:translateY(-6px);
+  box-shadow:
+    0 10px 24px rgba(0,0,0,0.08),
+    0 30px 70px rgba(0,0,0,0.15);
+}
+
+.fyv-thumb-wrap {
+  position:relative;
+  width:100%;
+  padding-bottom:56.25%;
+  background:#111;
+  overflow:hidden;
+  cursor:pointer;
+}
+
+.fyv-thumb {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:opacity .25s ease, transform .4s ease;
+  z-index:1;
+}
+
+.fyv-card:hover .fyv-thumb {
+  transform:scale(1.05);
+}
+
+.fyv-preview {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  transition:opacity .25s ease;
+  pointer-events:none;
+  z-index:2;
+  background:#000;
+}
+
+.fyv-card:hover .fyv-preview {
+  opacity:1;
+}
+
+.fyv-card:hover .fyv-thumb.has-preview {
+  opacity:0;
+}
+
+.fyv-thumb-fallback {
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-size:28px;
+  z-index:0;
+}
+
+.fyv-card-body {
+  padding:16px 16px 18px;
+}
+
+.fyv-name {
+  font-weight:700;
+  font-size:15px;
+  margin-bottom:4px;
+}
+
+.fyv-meta {
+  font-size:12px;
+  color:#A8A29E;
+}
+
+.fyv-actions {
+  display:flex;
+  gap:8px;
+}
+
+.fyv-btn {
+  flex:1;
+  padding:10px 0;
+  border-radius:999px;
+  font-size:11px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  text-align:center;
+  cursor:pointer;
+  transition:.2s;
+  text-decoration:none;
+  border:none;
+  box-sizing:border-box;
+  font-family:inherit;
+}
+
+.fyv-btn-watch {
+  background:#0A0A0A;
+  color:#fff;
+}
+
+.fyv-btn-download {
+  background:#EFEDE7;
+  color:#444;
+  border:1px solid #E0DDD6;
+}
+
+.fyv-btn:hover {
+  opacity:.75;
+}
+
+.fyv-overlay {
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.9);
+  backdrop-filter:blur(12px);
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+}
+
+.fyv-overlay.is-open {
+  display:flex;
+}
+
+.fyv-empty {
+  grid-column:1/-1;
+  text-align:center;
+  padding:60px 0;
+  color:#A8A29E;
+}
+
+@media(max-width:600px){
+  .fyv-hero { padding:80px 20px 60px; }
+  .fyv-results { padding:32px 20px 80px; }
+}

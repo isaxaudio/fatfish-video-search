@@ -1,0 +1,7 @@
+smugmug_config.py
+webflow-push.py
+urls-ready.csv
+*.csv
+__pycache__/
+*.pyc
+.DS_Store
