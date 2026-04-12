@@ -46,6 +46,14 @@
     '    <div class="fyv-status" id="fyv-status"></div>',
     '    <div class="fyv-grid" id="fyv-grid"></div>',
     '  </div>',
+    '  <footer class="fyv-footer">',
+    '    <img class="fyv-footer-logo" src="https://raw.githack.com/isaxaudio/fatfish-video-search/main/uopx-logo.png" alt="University of Phoenix">',
+    '    <span class="fyv-footer-copy">&copy; 2026 University of Phoenix. All Rights Reserved.</span>',
+    '    <div class="fyv-footer-links">',
+    '      <a class="fyv-footer-link" href="mailto:events@fatfishmedia.com">Need Help</a>',
+    '      <a class="fyv-footer-link" href="mailto:events@fatfishmedia.com">Contact Us</a>',
+    '    </div>',
+    '  </footer>',
     '</div>'
   ].join('\n'));
 

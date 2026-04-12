@@ -459,10 +459,71 @@ a.fyv-header-btn:hover {
 
 .fyv-overlay.is-open { display:flex; }
 
+/* ── Footer ───────────────────────────────────────────────── */
+.fyv-footer {
+  position:relative;
+  z-index:1;
+  margin-top:40px;
+  padding:36px 32px;
+  background:rgba(255,255,255,0.14);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-top:1px solid rgba(255,255,255,0.28);
+  box-shadow:0 -2px 24px rgba(0,0,0,0.05);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  flex-wrap:wrap;
+}
+
+.fyv-footer-logo {
+  height:28px;
+  display:block;
+  object-fit:contain;
+  filter:brightness(0);
+  opacity:0.55;
+}
+
+.fyv-footer-copy {
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:rgba(80,40,30,0.45);
+  flex:1;
+  text-align:center;
+}
+
+.fyv-footer-links {
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+.fyv-footer-link,
+a.fyv-footer-link {
+  font-size:10px !important;
+  font-weight:700 !important;
+  letter-spacing:0.1em !important;
+  text-transform:uppercase !important;
+  color:rgba(100,40,28,0.5) !important;
+  text-decoration:none !important;
+  transition:color .15s ease !important;
+  white-space:nowrap !important;
+}
+
+.fyv-footer-link:hover,
+a.fyv-footer-link:hover {
+  color:#9B2F1C !important;
+}
+
 /* ── Responsive ───────────────────────────────────────────── */
 @media(max-width:640px){
   .fyv-header  { padding:0 20px; }
   .fyv-hero    { padding:130px 20px 56px; }
   .fyv-results { padding:28px 16px 80px; }
   .fyv-grid    { gap:14px; }
+  .fyv-footer  { padding:28px 20px; flex-direction:column; align-items:center; text-align:center; gap:16px; }
+  .fyv-footer-copy { text-align:center; }
 }
