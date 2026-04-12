@@ -42,6 +42,17 @@
     '    </div>',
     '  </div>',
 
+    '  <div class="fyv-info">',
+    '    <div class="fyv-info-card">',
+    '      <p class="fyv-info-congrats">Congratulations, graduates! You believed &mdash; and you achieved!</p>',
+    '      <div class="fyv-info-body">',
+    '        <p>Get your personalized announcement below and celebrate this moment with your friends, classmates, and family. To find your personalized ceremony slide, type your name into the search bar above. Can&rsquo;t access it? <a href="mailto:events@fatfishmedia.com">Email us</a> &mdash; we&rsquo;ll get back to you as soon as possible.</p>',
+    '        <p>And don&rsquo;t forget your <strong>digital commencement program!</strong> Select <strong>&ldquo;Virtual-May2025&rdquo;</strong> in the drop-down menu to view or download the May 2025 Virtual Commencement program &mdash; available until <strong>June 2, 2025</strong>. The program lists graduate names alphabetically by last name within each degree. For ceremonies, the degree is recognized, not additional certificates.</p>',
+    '        <p>Continue to soar, Phoenixes! And welcome to our alumni family of more than a million strong.</p>',
+    '      </div>',
+    '    </div>',
+    '  </div>',
+
     '  <div class="fyv-results">',
     '    <div class="fyv-status" id="fyv-status"></div>',
     '    <div class="fyv-grid" id="fyv-grid"></div>',

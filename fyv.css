@@ -459,6 +459,68 @@ a.fyv-header-btn:hover {
 
 .fyv-overlay.is-open { display:flex; }
 
+/* ── Info panel ───────────────────────────────────────────── */
+.fyv-info {
+  max-width:780px;
+  margin:0 auto 16px;
+  padding:0 24px;
+}
+
+.fyv-info-card {
+  background:rgba(255,255,255,0.38);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,0.58);
+  border-radius:22px;
+  padding:32px 36px;
+  box-shadow:
+    0 2px 8px rgba(0,0,0,0.04),
+    0 12px 40px rgba(0,0,0,0.07),
+    inset 0 1px 0 rgba(255,255,255,0.82);
+}
+
+.fyv-info-congrats {
+  font-family:'Playfair Display',Georgia,serif;
+  font-style:italic;
+  font-size:clamp(18px,3vw,24px);
+  font-weight:400;
+  color:#9B2F1C;
+  line-height:1.3;
+  margin:0 0 18px;
+  padding-bottom:18px;
+  border-bottom:1px solid rgba(200,130,110,0.2);
+}
+
+.fyv-info-body {
+  font-size:13px;
+  line-height:1.75;
+  color:#5A3830;
+}
+
+.fyv-info-body p {
+  margin:0 0 14px;
+}
+
+.fyv-info-body p:last-child {
+  margin:0;
+}
+
+.fyv-info-body strong {
+  font-weight:700;
+  color:#3A1A14;
+}
+
+.fyv-info-body a {
+  color:#9B2F1C !important;
+  font-weight:600 !important;
+  text-decoration:underline !important;
+  text-underline-offset:3px !important;
+}
+
+.fyv-info-body a:hover {
+  color:#CC2B1A !important;
+}
+
 /* ── Footer ───────────────────────────────────────────────── */
 .fyv-footer {
   position:relative;
@@ -526,4 +588,6 @@ a.fyv-footer-link:hover {
   .fyv-grid    { gap:14px; }
   .fyv-footer  { padding:28px 20px; flex-direction:column; align-items:center; text-align:center; gap:16px; }
   .fyv-footer-copy { text-align:center; }
+  .fyv-info    { padding:0 16px; }
+  .fyv-info-card { padding:24px 22px; }
 }
