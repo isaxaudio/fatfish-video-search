@@ -9,11 +9,11 @@ body {
   /* Gradient sits on top of the photo layer */
   background:
     linear-gradient(148deg,
-      rgba(255,255,255,0.88) 0%,
-      rgba(250,220,210,0.80) 22%,
-      rgba(228,182,165,0.78) 48%,
-      rgba(196,112,92,0.88)  80%,
-      rgba(175,80,62,0.94)   100%
+      rgba(255,255,255,1.00)  0%,
+      rgba(255,255,255,0.95) 20%,
+      rgba(252,235,228,0.90) 45%,
+      rgba(220,150,130,0.82) 72%,
+      rgba(185,90,70,0.90)   100%
     ) fixed !important;
 }
 
