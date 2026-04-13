@@ -7,7 +7,12 @@
 body {
   min-height:100vh;
   font-family:'Roboto',sans-serif;
-  background:#ffffff !important;
+  background:
+    linear-gradient(to bottom,
+      #ffffff   0%,
+      #ffffff  60%,
+      #E3E6E7 100%
+    ) fixed !important;
 }
 
 /* ── Photo background layer ───────────────────────────────── */
@@ -17,16 +22,16 @@ body {
   z-index:0;
   pointer-events:none;
   overflow:hidden;
-  -webkit-mask-image:linear-gradient(to bottom, black 0%, black 60%, transparent 90%);
-  mask-image:linear-gradient(to bottom, black 0%, black 60%, transparent 90%);
+  -webkit-mask-image:linear-gradient(to bottom, black 0%, black 72%, transparent 95%);
+  mask-image:linear-gradient(to bottom, black 0%, black 72%, transparent 95%);
 }
 
 .fyv-bg-photo img {
   width:100%;
   height:100%;
   object-fit:cover;
-  object-position:top center;
-  opacity:0.35;
+  object-position:center 15%;
+  opacity:0.55;
 }
 
 /* All page content sits above the photo */
