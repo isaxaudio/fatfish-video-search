@@ -40,6 +40,12 @@
     '      <input class="fyv-input" id="fyv-input" placeholder="Search archive..."',
     '        autocomplete="off" spellcheck="false" />',
     '    </div>',
+    '    <div class="fyv-scroll-hint">',
+    '      <span class="fyv-scroll-hint-label">Scroll to explore</span>',
+    '      <svg class="fyv-scroll-hint-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">',
+    '        <polyline points="6 9 12 15 18 9"/>',
+    '      </svg>',
+    '    </div>',
     '  </div>',
 
     '  <div class="fyv-results">',
