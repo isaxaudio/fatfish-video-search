@@ -10,8 +10,7 @@ body {
   background:
     linear-gradient(160deg,
       #ffffff   0%,
-      #ffffff  78%,
-      #0d2535  94%,
+      #ffffff  90%,
       #001823 100%
     ) fixed !important;
 }
