@@ -257,9 +257,9 @@ a.fyv-header-btn:hover {
   font-weight:600;
   letter-spacing:0.1em;
   text-transform:uppercase;
-  color:rgba(0,24,35,0.4);
+  color:#DB3725;
   min-height:14px;
-  margin-bottom:24px;
+  margin-top:6px;
 }
 
 /* ── Grid ─────────────────────────────────────────────────── */
