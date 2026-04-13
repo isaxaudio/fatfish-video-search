@@ -78,7 +78,7 @@ body {
   left:0;
   right:0;
   z-index:999;
-  height:32px;
+  height:38px;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -90,7 +90,7 @@ body {
 }
 
 .fyv-subheader-year {
-  font-size:10px;
+  font-size:13px;
   font-weight:800;
   letter-spacing:0.12em;
   color:#8A2818;
@@ -98,13 +98,13 @@ body {
 
 .fyv-subheader-divider {
   width:1px;
-  height:10px;
+  height:12px;
   background:rgba(155,47,28,0.3);
   display:inline-block;
 }
 
 .fyv-subheader-label {
-  font-size:10px;
+  font-size:13px;
   font-weight:500;
   letter-spacing:0.18em;
   text-transform:uppercase;
