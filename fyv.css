@@ -17,8 +17,8 @@ body {
   z-index:0;
   pointer-events:none;
   overflow:hidden;
-  -webkit-mask-image:linear-gradient(to bottom, black 0%, black 35%, transparent 75%);
-  mask-image:linear-gradient(to bottom, black 0%, black 35%, transparent 75%);
+  -webkit-mask-image:linear-gradient(to bottom, black 0%, black 60%, transparent 90%);
+  mask-image:linear-gradient(to bottom, black 0%, black 60%, transparent 90%);
 }
 
 .fyv-bg-photo img {
