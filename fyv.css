@@ -7,15 +7,7 @@
 body {
   min-height:100vh;
   font-family:'Roboto',sans-serif;
-  /* White → subtle Willpower red tint */
-  background:
-    linear-gradient(148deg,
-      #ffffff                    0%,
-      #ffffff                   22%,
-      rgba(219,55,37,0.05)      48%,
-      rgba(219,55,37,0.14)      75%,
-      rgba(219,55,37,0.22)     100%
-    ) fixed !important;
+  background:#ffffff !important;
 }
 
 /* ── Photo background layer ───────────────────────────────── */
