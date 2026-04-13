@@ -7,12 +7,7 @@
 body {
   min-height:100vh;
   font-family:'Roboto',sans-serif;
-  background:
-    linear-gradient(160deg,
-      #ffffff   0%,
-      #ffffff  90%,
-      #001823 100%
-    ) fixed !important;
+  background:#ffffff !important;
 }
 
 /* ── Photo background layer ───────────────────────────────── */
