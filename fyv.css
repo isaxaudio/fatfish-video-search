@@ -23,7 +23,7 @@ body {
   pointer-events:none;
   background-image:url('https://raw.githack.com/isaxaudio/fatfish-video-search/main/hero-bg.png');
   background-size:cover;
-  background-position:center 20%;
+  background-position:center 0%;
   background-repeat:no-repeat;
   opacity:0.20;
   -webkit-mask-image:linear-gradient(to bottom, black 0%, black 75%, transparent 95%);
