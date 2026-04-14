@@ -25,7 +25,7 @@ body {
   background-size:cover;
   background-position:center 45%;
   background-repeat:no-repeat;
-  opacity:0.55;
+  opacity:0.20;
   -webkit-mask-image:linear-gradient(to bottom, black 0%, black 92%, transparent 110%);
   mask-image:linear-gradient(to bottom, black 0%, black 92%, transparent 110%);
 }
