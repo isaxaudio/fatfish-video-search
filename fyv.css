@@ -29,6 +29,12 @@ body {
   -webkit-mask-image:linear-gradient(to bottom, black 0%, black 75%, transparent 95%);
   mask-image:linear-gradient(to bottom, black 0%, black 75%, transparent 95%);
 }
+@media (max-width:767px) {
+  .fyv-bg-photo {
+    background-size:auto 100vh;
+    background-position:center top;
+  }
+}
 
 .fyv-bg-photo img { display:none; }
 
