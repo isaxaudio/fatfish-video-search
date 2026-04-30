@@ -470,9 +470,9 @@ a.fyv-header-btn:hover {
   display:none;
   position:fixed;
   inset:0;
-  background:rgba(0,24,35,0.95);
-  backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
+  background:rgba(0,12,24,0.45);
+  backdrop-filter:blur(28px);
+  -webkit-backdrop-filter:blur(28px);
   align-items:center;
   justify-content:center;
   z-index:9999;
@@ -481,6 +481,38 @@ a.fyv-header-btn:hover {
 }
 
 .fyv-overlay.is-open { display:flex; }
+
+.fyv-modal {
+  position:relative;
+  width:min(92vw,960px);
+}
+
+.fyv-modal-close {
+  position:absolute;
+  top:-52px;
+  right:0;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  background:rgba(255,255,255,0.92);
+  color:#001823;
+  border:none;
+  border-radius:99px;
+  padding:9px 18px 9px 13px;
+  font-size:14px;
+  font-weight:600;
+  font-family:'Roboto',sans-serif;
+  cursor:pointer;
+  box-shadow:0 2px 20px rgba(0,0,0,0.22);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  transition:background 0.15s, transform 0.1s;
+}
+
+.fyv-modal-close:hover {
+  background:#fff;
+  transform:scale(1.04);
+}
 
 /* ── Congrats section ─────────────────────────────────────── */
 .fyv-congrats-section {

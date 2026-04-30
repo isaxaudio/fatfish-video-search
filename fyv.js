@@ -17,11 +17,13 @@
 
   document.body.insertAdjacentHTML('beforeend', [
     '<div class="fyv-overlay" id="fyv-overlay">',
-    '  <div style="position:relative;width:min(92vw,960px)">',
-    '    <button id="fyv-close" aria-label="Close"',
-    '      style="position:absolute;top:12px;right:12px;z-index:2;width:36px;height:36px;',
-    '             border:none;border-radius:999px;background:rgba(255,255,255,.1);',
-    '             color:#fff;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;">&times;</button>',
+    '  <div class="fyv-modal">',
+    '    <button id="fyv-close" class="fyv-modal-close" aria-label="Close">',
+    '      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">',
+    '        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>',
+    '      </svg>',
+    '      Close',
+    '    </button>',
     '    <video id="fyv-modal-video" controls playsinline',
     '      style="width:100%;display:block;border-radius:16px;background:#000;"></video>',
     '  </div>',
