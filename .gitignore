@@ -5,3 +5,11 @@ urls-ready.csv
 __pycache__/
 *.pyc
 .DS_Store
+secrets_local.py
+*.save
+.env
+.venv/
+venv/
+node_modules/
+dist/
+build/
